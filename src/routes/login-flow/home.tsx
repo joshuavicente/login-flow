@@ -2,7 +2,7 @@ import { createFileRoute, Navigate } from "@tanstack/react-router"
 import { useAuth0 } from "@auth0/auth0-react"
 import { Button } from "@/components/ui/button"
 
-export const Route = createFileRoute("/todo-app/home")({
+export const Route = createFileRoute("/login-flow/home")({
   component: RouteComponent,
 })
 
@@ -10,7 +10,7 @@ function RouteComponent() {
   const { isLoading, isAuthenticated, user, logout } = useAuth0()
 
   if (isLoading) return <div>Loading...</div>
-  if (!isAuthenticated) return <Navigate to="/todo-app/login" />
+  if (!isAuthenticated) return <Navigate to="/login-flow/login" />
 
   return (
     <div className="grid gap-4">

@@ -26,7 +26,7 @@ createRoot(document.getElementById("root")!).render(
       clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
       authorizationParams={{ redirect_uri: window.location.origin }}
       // After Auth0 redirects back, send the user to the home page
-      onRedirectCallback={() => router.navigate({ to: "/todo-app/home" })}
+      onRedirectCallback={() => router.navigate({ to: "/login-flow/home" })}
     >
       <ThemeProvider>
         <RouterProvider router={router} />

@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-export const Route = createFileRoute("/todo-app/login")({
+export const Route = createFileRoute("/login-flow/login")({
   component: LoginComponent,
 })
 
@@ -18,7 +18,7 @@ export function LoginComponent() {
   const { isLoading, isAuthenticated, error, loginWithRedirect } = useAuth0()
 
   if (isLoading) return <div>Loading...</div>
-  if (isAuthenticated) return <Navigate to="/todo-app/home" />
+  if (isAuthenticated) return <Navigate to="/login-flow/home" />
 
   const login = () => loginWithRedirect()
   const signup = () =>

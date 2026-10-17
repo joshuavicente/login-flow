@@ -11,5 +11,7 @@ function IndexComponent() {
   // Wait for Auth0 to finish processing the login callback (?code=&state=)
   if (isLoading) return <div>Loading...</div>
 
-  return <Navigate to={isAuthenticated ? "/todo-app/home" : "/todo-app/login"} />
+  return (
+    <Navigate to={isAuthenticated ? "/login-flow/home" : "/login-flow/login"} />
+  )
 }

@@ -10,64 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TodoAppHomeRouteImport } from './routes/todo-app/home'
-import { Route as TodoAppLoginRouteImport } from './routes/todo-app/login'
-import { Route as TodoAppSignupRouteImport } from './routes/todo-app/signup'
+import { Route as LoginFlowHomeRouteImport } from './routes/login-flow/home'
+import { Route as LoginFlowLoginRouteImport } from './routes/login-flow/login'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TodoAppHomeRoute = TodoAppHomeRouteImport.update({
-  id: '/todo-app/home',
-  path: '/todo-app/home',
+const LoginFlowHomeRoute = LoginFlowHomeRouteImport.update({
+  id: '/login-flow/home',
+  path: '/login-flow/home',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TodoAppLoginRoute = TodoAppLoginRouteImport.update({
-  id: '/todo-app/login',
-  path: '/todo-app/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TodoAppSignupRoute = TodoAppSignupRouteImport.update({
-  id: '/todo-app/signup',
-  path: '/todo-app/signup',
+const LoginFlowLoginRoute = LoginFlowLoginRouteImport.update({
+  id: '/login-flow/login',
+  path: '/login-flow/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/todo-app/home': typeof TodoAppHomeRoute
-  '/todo-app/login': typeof TodoAppLoginRoute
-  '/todo-app/signup': typeof TodoAppSignupRoute
+  '/login-flow/home': typeof LoginFlowHomeRoute
+  '/login-flow/login': typeof LoginFlowLoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/todo-app/home': typeof TodoAppHomeRoute
-  '/todo-app/login': typeof TodoAppLoginRoute
-  '/todo-app/signup': typeof TodoAppSignupRoute
+  '/login-flow/home': typeof LoginFlowHomeRoute
+  '/login-flow/login': typeof LoginFlowLoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/todo-app/home': typeof TodoAppHomeRoute
-  '/todo-app/login': typeof TodoAppLoginRoute
-  '/todo-app/signup': typeof TodoAppSignupRoute
+  '/login-flow/home': typeof LoginFlowHomeRoute
+  '/login-flow/login': typeof LoginFlowLoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/todo-app/home' | '/todo-app/login' | '/todo-app/signup'
+  fullPaths: '/' | '/login-flow/home' | '/login-flow/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/todo-app/home' | '/todo-app/login' | '/todo-app/signup'
-  id:
-    '__root__' | '/' | '/todo-app/home' | '/todo-app/login' | '/todo-app/signup'
+  to: '/' | '/login-flow/home' | '/login-flow/login'
+  id: '__root__' | '/' | '/login-flow/home' | '/login-flow/login'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  TodoAppHomeRoute: typeof TodoAppHomeRoute
-  TodoAppLoginRoute: typeof TodoAppLoginRoute
-  TodoAppSignupRoute: typeof TodoAppSignupRoute
+  LoginFlowHomeRoute: typeof LoginFlowHomeRoute
+  LoginFlowLoginRoute: typeof LoginFlowLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -79,25 +68,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/todo-app/home': {
-      id: '/todo-app/home'
-      path: '/todo-app/home'
-      fullPath: '/todo-app/home'
-      preLoaderRoute: typeof TodoAppHomeRouteImport
+    '/login-flow/home': {
+      id: '/login-flow/home'
+      path: '/login-flow/home'
+      fullPath: '/login-flow/home'
+      preLoaderRoute: typeof LoginFlowHomeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/todo-app/login': {
-      id: '/todo-app/login'
-      path: '/todo-app/login'
-      fullPath: '/todo-app/login'
-      preLoaderRoute: typeof TodoAppLoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/todo-app/signup': {
-      id: '/todo-app/signup'
-      path: '/todo-app/signup'
-      fullPath: '/todo-app/signup'
-      preLoaderRoute: typeof TodoAppSignupRouteImport
+    '/login-flow/login': {
+      id: '/login-flow/login'
+      path: '/login-flow/login'
+      fullPath: '/login-flow/login'
+      preLoaderRoute: typeof LoginFlowLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -105,9 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  TodoAppHomeRoute: TodoAppHomeRoute,
-  TodoAppLoginRoute: TodoAppLoginRoute,
-  TodoAppSignupRoute: TodoAppSignupRoute,
+  LoginFlowHomeRoute: LoginFlowHomeRoute,
+  LoginFlowLoginRoute: LoginFlowLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
